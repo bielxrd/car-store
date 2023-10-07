@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CarDAO {
+public class CarDao {
 
     public void createCar(Car car) {
         String SQL = "INSERT INTO CAR (NAME) VALUES (?)";
@@ -32,22 +32,32 @@ public class CarDAO {
     }
 
     public List<Car> findAllCars() {
+
         String SQL = "SELECT * FROM CAR";
+
         try {
+
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            System.out.println("sucess in connection");
+
+            System.out.println("success in database connection");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
             ResultSet resultSet = preparedStatement.executeQuery();
+
             List<Car> cars = new ArrayList<>();
+
             while (resultSet.next()) {
 
-                Car car = new Car(resultSet.getString("name"));
+                String carName = resultSet.getString("name");
+
+                Car car = new Car(carName);
 
                 cars.add(car);
+
             }
 
-            System.out.println("sucess in select * car");
+            System.out.println("success in select * car");
 
             connection.close();
 
@@ -58,6 +68,10 @@ public class CarDAO {
             System.out.println("fail in database connection");
 
             return Collections.emptyList();
+
         }
+
     }
+
+
 }
