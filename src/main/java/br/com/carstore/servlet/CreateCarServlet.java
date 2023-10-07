@@ -17,8 +17,7 @@ public class CreateCarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String carName = req.getParameter("car-name");
 
-        Car car = new Car();
-        car.setName(carName);
+        Car car = new Car(carName);
         new CarDAO().createCar(car);
 
         req.getRequestDispatcher("index.html").forward(req, resp);
