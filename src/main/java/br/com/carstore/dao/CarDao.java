@@ -1,5 +1,6 @@
 package br.com.carstore.dao;
 
+import br.com.carstore.config.ConnectionPoolConfig;
 import br.com.carstore.model.Car;
 
 import java.sql.*;
@@ -13,8 +14,7 @@ public class CarDao {
         String SQL = "INSERT INTO CAR (NAME) VALUES (?)";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            System.out.println("sucess in connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, car.getName());
@@ -34,9 +34,7 @@ public class CarDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -76,9 +74,7 @@ public class CarDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-
-            System.out.println("sucess!");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, carId);
@@ -100,9 +96,7 @@ public class CarDao {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
-
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
