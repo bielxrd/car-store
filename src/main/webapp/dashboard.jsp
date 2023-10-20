@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
@@ -12,12 +12,19 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Actions</th>
         </tr>
         <c:forEach var="car" items="${cars}">
-        <tr>
-            <td></td>
-            <td>${car.name}</td>
-        </tr>
+            <tr>
+                <td>${car.id}</td>
+                <td>${car.name}</td>
+                <td>
+                    <form action="/delete-car" method="post">
+                        <input type="hidden" id="id" name="id" value="${car.id}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
         </c:forEach>
     </table>
 </div>
