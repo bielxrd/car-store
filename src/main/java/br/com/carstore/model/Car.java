@@ -10,9 +10,9 @@ public class Car {
         this.name = name;
     }
 
-    public Car(String name, String id) {
-        this.name = name;
+    public Car(String id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public String getName() {
