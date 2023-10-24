@@ -1,0 +1,81 @@
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #000;
+
+}
+
+.menu {
+    border-radius: 47px;
+    border: 3px solid #FFF;
+    background: #000;
+    width: 1372px;
+    height: 140px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto; /* Adicione esta linha */
+}
+
+.menu a {
+    position: relative;
+    padding: 10px 20px;
+    color: #FFF;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 143px;
+    margin: 0 40px 0 40px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.barraInferior {
+    position: absolute;
+    background: #ffffff;
+    width: 165px;
+    height: 6px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    background: url(" "), rgba(0, 0, 0, 0) 50% / cover no-repeat;
+    width: 127px;
+    height: 123px;
+    flex-shrink: 0;
+    bottom: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+}
+
+.play-button {
+    border: 2px solid white;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+
+}
+.play-button:hover {
+    background: white;
+    color: black;
+}
+.menu a:hover {
+    background: white;
+    color: black;
+}
